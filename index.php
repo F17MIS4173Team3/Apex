@@ -4,7 +4,7 @@
 </head>
 
 <body>
-<h1>Future home of the MIS4173 project! Now with GitHub!</h1>
+<h1>Future home of the MIS4173 project! Now with GitHub (twice)!</h1>
 </body>
 
 </html>
