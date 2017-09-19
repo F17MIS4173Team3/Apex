@@ -1,10 +1,25 @@
+<?php
+include "include/globals.php";
+
+if (!isset($_COOKIE["wellness_login"])) {
+	// User is not logged in
+	header('Location: login.php');
+}
+else {
+?>
 <html>
 <head>
-<title>MIS4173</title>
+<title>Apex Wellness System</title>
 </head>
 
 <body>
-<h1>Future home of the MIS4173 project! Now with GitHub (twice)!</h1>
+<h1>Apex Wellness System Home</h1>
+Uniquie ID: <?php echo $_COOKIE["wellness_login"]; ?>
+<p><a href="logout.php">Log Out</a></p>
 </body>
 
 </html>
+<?php
+	
+}
+?>
