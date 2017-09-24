@@ -1,21 +1,22 @@
 <?php
 include "include/globals.php";
+include "include/f_users.php";
 
 if (!isset($_COOKIE["wellness_login"])) {
 	// User is not logged in
 	header('Location: login.php');
 }
 else {
+	setcookie("wellness_login",$_COOKIE["wellness_login"],time()+3600);
 ?>
-<html>
-<head>
-<title>Apex Wellness System</title>
-</head>
+<?php get_header_text("home","Home",get_fullname($_COOKIE["wellness_login_id"])); ?>
 
-<body>
-<h1>Apex Wellness System Home</h1>
-Uniquie ID: <?php echo $_COOKIE["wellness_login"]; ?>
-<p><a href="logout.php">Log Out</a></p>
+<p>Content goes here</p>
+
+<div id="footer">
+	<div id="classinfo">MIS4153 - Wellness Point System</div>
+</div>
+
 </body>
 
 </html>

@@ -1,0 +1,105 @@
+body {
+	margin: 0px;
+}
+
+#title {
+	float: left;
+	width: 49%;
+	text-align: left;
+}
+
+#title h1 {
+	margin: 0;
+}
+
+#welcome {
+	float: right;
+	width: 49%;
+	text-align: right;
+	padding: 2px;
+}
+
+.headerrow {
+	width: 100%;
+	clear: both;
+	background-color: #f3efe5;
+	overflow: auto;
+}
+
+#topbar {
+	width: 100%;
+	height: 7px;
+	background-color: #eeddb3;
+	overflow: auto;
+}
+
+#navcontainer {
+	background-color: #4eace0;
+	overflow: hidden;
+}
+
+#navcontainer ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#navcontainer ul li {
+	display: inline-block;
+	font-family: 'Libre Bakerville';
+	font-weight: 700;
+	font-size: 1em;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+}
+
+#navcontainer ul li a {
+	text-decoration: none;
+	padding: .2em 1em;
+	color: #fff;
+}
+
+#navcontainer ul li a:hover
+{
+	color: #20709b;
+}
+
+#footer {
+	background-color: #4d4b44;
+	color: #fff;
+	height: 5em;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+#classinfo {
+	text-align: right;
+	size: 0.5em;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+#loginbox {
+	-webkit-border-radius: 10;
+	-moz-border-radius: 10;
+	border-radius: 10px;
+	position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 20%;
+	width: 250px;
+	padding: 30px;
+	border: 1px solid #000;
+}
+
+.submit {
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px;
+	background: #4eace0;
+	border: solid #000000 1px;
+	text-decoration: none;
+}
