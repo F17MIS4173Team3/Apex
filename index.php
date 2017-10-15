@@ -11,16 +11,9 @@ else {
 ?>
 <?php get_header_text("home","Home",get_fullname($_COOKIE["wellness_login_id"])); ?>
 
-<p>Content goes here</p>
+<p>Point Balance: <span class="pbal"><?php echo rand(2, 200); ?></span></p>
 
-<div id="footer">
-	<div id="classinfo">MIS4153 - Wellness Point System</div>
-</div>
-
-</body>
-
-</html>
 <?php
-	
+	get_footer_text();
 }
 ?>

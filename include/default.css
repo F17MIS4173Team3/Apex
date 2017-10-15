@@ -1,5 +1,11 @@
 body {
 	margin: 0px;
+	font-family: 'Libre Baskerville', 'Arial', san-serif;
+	font-size: 10pt;
+}
+
+td {
+	font-size: 10pt;
 }
 
 #title {
@@ -10,6 +16,12 @@ body {
 
 #title h1 {
 	margin: 0;
+	font-size: 16pt;
+	padding-left: 2px;
+}
+
+#main h1 {
+	font-size: 18pt;
 }
 
 #welcome {
@@ -17,6 +29,10 @@ body {
 	width: 49%;
 	text-align: right;
 	padding: 2px;
+}
+
+#header {
+	/*overflow: hidden;*/
 }
 
 .headerrow {
@@ -35,40 +51,81 @@ body {
 
 #navcontainer {
 	background-color: #4eace0;
-	overflow: hidden;
+	width: 100%;
+	position: absolute;
+	right: 0;
 }
 
 #navcontainer ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	text-align: center;
+	text-align: left;
+	position: relative;
+	float: left;
+	background-color: #4eace0;
+	/*overflow: hidden;*/
+}
+
+#navcontainer ul a {
+	text-decoration: none;
+	padding: 10px 15px;
+	color: #fff;
+	display: block;
+	font-weight: 700;
 }
 
 #navcontainer ul li {
-	display: inline-block;
-	font-family: 'Libre Bakerville';
-	font-weight: 700;
-	font-size: 1em;
-	padding-top: 1.5em;
-	padding-bottom: 1.5em;
+	position: relative;
+	/*display: block;*/
+	float: left;
+	margin: 0;
 }
 
-#navcontainer ul li a {
+#navcontainer ul li:hover {
+	background-color: #4eaca0;
+}
+
+#navcontainer ul ul {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background-color: #4eace0;
+}
+
+#navcontainer ul ul li
+{
+	color: #20709b;
+	float: none;
+	width: 200px;
+	margin: 0;
+}
+
+#navcontainer ul ul a {
 	text-decoration: none;
-	padding: .2em 1em;
+	padding: 10px 15px;
 	color: #fff;
 }
 
-#navcontainer ul li a:hover
+#navcontainer ul ul ul {
+	top: 0px;
+	left: 100%;
+}
+
+#navcontainer ul li:hover > ul
 {
-	color: #20709b;
+	display: block;
+	z-index: 100;
 }
 
 #footer {
 	background-color: #4d4b44;
 	color: #fff;
-	height: 5em;
+	height: 25px;
 	position: fixed;
 	bottom: 0px;
 	width: 100%;
@@ -102,4 +159,28 @@ body {
 	background: #4eace0;
 	border: solid #000000 1px;
 	text-decoration: none;
+}
+
+#fattach {
+	display: none;
+}
+
+#main {
+	padding: 5px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.pbal {
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+input#username {
+	background-color: #ccc;
+}
+
+.note {
+	font-size: 8pt;
+	font-style: italic;
 }

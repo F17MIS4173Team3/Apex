@@ -43,15 +43,8 @@ else {
 	</form>
 </div>
 
-<div id="footer">
-	<div id="classinfo">MIS4153 - Wellness Point System</div>
-</div>
-
-</body>
-
-</html>
 <?php
-
+	get_footer_text();
 	}
 }
 ?>

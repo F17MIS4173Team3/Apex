@@ -17,7 +17,19 @@ function get_header_text($page, $title, $name) {
 	echo '<html>
 <head>
 <link rel="stylesheet" type="text/css" href="include/default.css" />
-<title>Apex Wellness System';
+<link rel="stylesheet" type="text/css" href="include/jquery-ui.css" />
+<script type="text/javascript" src="include/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="include/jquery-ui.min.js"></script>
+';
+if ($page == "submit") {
+	echo '<script type="text/javascript" src="include/submit.js"></script>
+';
+}
+if ($page == "useredit") {
+	echo '<script type="text/javascript" src="include/useredit.js"></script>
+';
+}
+echo '<title>Apex Wellness System';
 	if ($title) { echo "- ".$title;}
 echo '</title>
 </head>
@@ -29,27 +41,51 @@ echo '</title>
 		<div id="topbar"></div>
 	</div>
 	<div class="headerrow">
-		<div id="title"><img src="images/apexlogo.png" width="220" height="165" /><h1>Apex Wellness System Home</h1></div>';
+		<div id="title"><img src="images/apexlogo.png" width="220" height="165" /><h1>Apex Wellness System Home</h1></div>
+';
 	if ($name) {
-		echo '		<div id="welcome">Welcome, '.$name.'!</div>';
+		echo '		<div id="welcome">Welcome, '.$name.'!<br /><br /><a href="logout.php">Log Out</a></div>';
 	}
 	echo '
 	</div>';
 	if ($page != "login") {
 		echo '
-	<div class="headerrow">
-		<div id="navcontainer">
+</div>
+<div id="navcontainer">
+	<ul>
+		<li><a href="index.php">Home</a></li>
+		<li><a href="history.php">Wellness History</a></li>
+		<li><a href="submit.php">New Submission</a></li>';
+	if (get_user_level($_COOKIE["wellness_login_id"]) == 1) {
+		echo '
+		<li><a href="#">Admin Functions</a>
 			<ul>
-				<li><a href="index.php">Home</a></li>
-				<li><a href="history.php">Wellness History</a></li>
-				<li><a href="submit.php">New Submission</a></li>
-				<li><a href="logout.php">Log Out</a></li>
+				<li><a href="useredit.php">Add/Remove Users</a></li>
+				<li><a href="submit.php?asadmin=1">Manual Submission</a></li>
+				<li><a href="reports.php">Reports</a></li>
 			</ul>
-		</div>
-	</div>';
+		</li>';
 	}
 	echo '
-</div>';
+	</ul>
+</div>
+';
+	}
+	echo '
+<div id="main">
+';
+
+function get_footer_text() {
+	echo '</div>
+	<div id="footer">
+	<div id="classinfo">MIS4173 - Wellness Point System</div>
+</div>
+
+</body>
+
+</html>
+';
+}
 }
 
 ?>
