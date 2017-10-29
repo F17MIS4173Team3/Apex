@@ -1,6 +1,7 @@
 <?php
 include "include/globals.php";
 include "include/f_users.php";
+include "include/f_activities.php";
 
 if (!isset($_COOKIE["wellness_login"])) {
 	// User is not logged in
@@ -13,34 +14,46 @@ else {
 
 <h1>Wellness History</h1>
 
-<table border="1" cellpadding="4" cellspacing="0">
+<table cellpadding="4" cellspacing="0">
 	<tr>
 		<th>Date</th>
 		<th>Activity</th>
-		<th>Duration</th>
+		<th>Data</th>
 		<th>Points</th>
+		<th>Approved</th>
 	</tr>
 <?php
-$activitylist = array("Running","Walking","Biking","Weight Lifting");
-$duration = array(15,30,45,60);
-$months = array("January","February","March","April","May","June","July","August","September","October");
-$points = 0;
 
-for ($i = 1; $i <= 10; $i++) {
-	$d = $duration[array_rand($duration, 1)];
-	$points = $points + (($d / 15) * 5);
-	echo "\t<tr>";
-	echo "\t\t<td>" . $months[array_rand($months, 1)] . " " . rand(1,29) . ", 2017</td>\n";
-	echo "\t\t<td>" . $activitylist[array_rand($activitylist, 1)] . "</td>\n";
-	echo "\t\t<td>" . $d . "</td>\n";
-	echo "\t\t<td>" . (($d / 15) * 5) . "</td>\n";
-	echo "\t</tr>";
+$activities = get_emp_activity_history($_COOKIE["wellness_login_id"],date("Ym"));
+$points = 0;
+$approved_points = 0;
+
+foreach ($activities as $activity) {
+	if ($activity["input"]) {
+		$data = $activity["input"];
+	}
+	elseif ($activity["duration"]) {
+		$data = $activity["duration"] . " minutes";
+	}
+	else {
+		$data = "";
+	}
+	$points = $points + $activity["points"];
+	if ($activity["approver"] > 0) {
+		$approved = "Yes";
+		$approved_points = $approved_points + $activity["points"];
+	}
+	else {
+		$approved = "No";
+	}
+	echo "\t<tr>\n\t\t<td>" . $activity["activitydate"] . "</td>\n\t\t<td>" . $activity["name"] . "</td>\n\t\t<td>" . $data . "</td>\n\t\t<td>" . $activity["points"] . "</td>\n\t\t<td>" . $approved . "</td>\n\t</tr>\n";
 }
 
 ?>
 	<tr>
 		<td colspan="3" align="right">Total:</td>
 		<td><?php echo $points; ?></td>
+		<td><?php echo $approved_points; ?></td>
 	</tr>
 </table>
 

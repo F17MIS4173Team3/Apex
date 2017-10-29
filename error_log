@@ -1,1 +1,14 @@
-[15-Oct-2017 16:34:58 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/grebfamily/public_html/mis4173/Team3/rest.php on line 11
+[24-Oct-2017 15:02:45 UTC] PHP Parse error:  syntax error, unexpected 'in' (T_STRING) in /home/grebfamily/public_html/mis4173/Team3/submit.php on line 33
+[25-Oct-2017 18:10:23 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/grebfamily/public_html/mis4173/Team3/submit.php on line 97
+[25-Oct-2017 18:10:48 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/grebfamily/public_html/mis4173/Team3/submit.php on line 98
+[25-Oct-2017 18:12:30 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/grebfamily/public_html/mis4173/Team3/submit.php on line 103
+[25-Oct-2017 18:12:41 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/grebfamily/public_html/mis4173/Team3/submit.php on line 103
+[26-Oct-2017 16:42:26 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ',' or ';' in /home/grebfamily/public_html/mis4173/Team3/include/globals.php on line 7
+[28-Oct-2017 14:12:20 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/grebfamily/public_html/mis4173/Team3/submit.php on line 88
+[28-Oct-2017 14:12:51 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/grebfamily/public_html/mis4173/Team3/submit.php on line 88
+[28-Oct-2017 14:13:01 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/grebfamily/public_html/mis4173/Team3/submit.php on line 88
+[28-Oct-2017 14:13:49 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/grebfamily/public_html/mis4173/Team3/submit.php on line 132
+[28-Oct-2017 21:23:36 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/grebfamily/public_html/mis4173/Team3/login.php on line 53
+[28-Oct-2017 21:24:25 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/grebfamily/public_html/mis4173/Team3/login.php on line 53
+[28-Oct-2017 23:24:38 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/grebfamily/public_html/mis4173/Team3/login.php on line 23
+[28-Oct-2017 23:24:55 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/grebfamily/public_html/mis4173/Team3/login.php on line 23

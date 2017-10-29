@@ -14,26 +14,27 @@ else {
 		
 		if ($username && $password) {
 			$login = check_login($username,$password);
-			if ($login = 1) {
+			if ($login["response"] == TRUE) {
 				$uniqid = uniqid();
 				setcookie("wellness_login",$uniqid,time()+3600);
 				setcookie("wellness_login_id",get_login_id($username),time()+3600);
 				header('Location: index.php');
 			}
-			elseif ($login = 0) {
-				echo '<div class="error">The user '.$username.' does not exist.</div>';
-			}
-			elseif ($login = -1) {
-				echo '<div class="error">The password is incorrect.</div>';
+			else {
+				$error = '<div class="error">'.$login["error"].'</div>';
 			}
 		}
 		elseif ($username == "" || $password = "") {
-			echo '<div class="error">You must enter a username and password.</div>';
+			$error = '<div class="error">You must enter a username and password.</div>';
 		}
 	}
-	else {
+	get_header_text("login","Login","");
+
+	if (isset($error)) {
+		echo '<div class="error" align="center">'.$error.'</div>';
+	}
+
 ?>
-<?php get_header_text("login","Login",""); ?>
 
 <div id="loginbox">
 	<form method="post" action="login.php">
@@ -45,6 +46,5 @@ else {
 
 <?php
 	get_footer_text();
-	}
 }
 ?>

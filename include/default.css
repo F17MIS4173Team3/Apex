@@ -180,7 +180,38 @@ input#username {
 	background-color: #ccc;
 }
 
-.note {
+.note, #activitynote {
 	font-size: 8pt;
 	font-style: italic;
+}
+
+.debug {
+	border: 1px solid #000;
+	background-color: yellow;
+	color: #000;
+	font-size: 9pt;
+	font-family: Consolas, Courier;
+}
+
+.error {
+	color: red;
+	font-size: 12pt;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td,th {
+	border: 1px solid #333;
+}
+
+table.noborder tr td {
+	border: 0;
+}
+
+th {
+	font-size: 11pt;
+	font-weight: bold;
+	background-color: #ccc;
 }

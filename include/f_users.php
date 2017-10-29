@@ -4,18 +4,21 @@
 function check_login($username,$password) {
 	$db = new MysqliDb (DB_HOST, DB_USER, DB_PASS, DB_NAME);
 	$db->where('username',$username);
-	$userinfo = $db->getOne("employee");
+	$userinfo = $db->getOne("employee","password,active");
 	if (!$userinfo) {
 		// User does not exist
-		return 0;
+		return array("response"=>FALSE,"error"=>"User ".$username." does not exist.");
+	}
+	elseif ($userinfo["active"] == FALSE) {
+		return array("response"=>FALSE,"error"=>"The user is not active, contact the HR office.");
 	}
 	elseif ($password != $userinfo['password']) {
 		// Password is incorrect
-		return -1;
+		return array("response"=>FALSE,"error"=>"Password is incorrect.");
 	}
 	elseif ($password == $userinfo['password']) {
 		// Password is correct
-		return 1;
+		return array("response"=>TRUE);
 	}
 	else {
 		// Unknown error_get_last
@@ -73,6 +76,54 @@ function get_user_data($id) {
 	else {
 		return $userinfo;
 	}
+}
+
+function update_user($empid,$data) {
+	$update_data = array(
+		"firstname" => $data["firstname"],
+		"lastname" => $data["lastname"],
+		"email" => $data["email"],
+		"userlevel" => $data["userlevel"],
+		"active" => $data["active"]
+	);
+	if ($data["password"] != "") {
+		$update_data["password"] = md5($data["password"]);
+	}
+	$db = new MysqliDb (DB_HOST, DB_USER, DB_PASS, DB_NAME);
+	$db->where('id',$empid);
+	if ($db->update ('employee', $update_data)) {
+		return array("response"=>TRUE);
+	}
+	else {
+		return array("response"=>FALSE,"error"=>$db->getLastError());
+	}
+
+}
+
+function add_user($data) {
+	$insert_data = array(
+		"username" => $data["username"],
+		"firstname" => $data["firstname"],
+		"lastname" => $data["lastname"],
+		"email" => $data["email"],
+		"userlevel" => $data["userlevel"],
+		"password" => md5($data["password"]),
+		"active" => $data["active"]
+	);
+	$db = new MysqliDb (DB_HOST, DB_USER, DB_PASS, DB_NAME);
+	$db->where('username',$data["username"]);
+	$user = $db->getOne("employee","id");
+	debug($user["id"]);
+	if ($user["id"]) {
+		return array("response"=>FALSE,"error"=>"This user already exists.");
+	}
+	elseif ($db->insert ('employee', $insert_data)) {
+		return array("response"=>TRUE);
+	}
+	else {
+		return array("response"=>FALSE,"error"=>$db->getLastError());
+	}
+
 }
 
 function get_user_list($include_blank = false) {

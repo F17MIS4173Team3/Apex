@@ -4,6 +4,8 @@ ini_set('log_errors', 1);
 ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
 error_reporting(E_ALL);
 
+define('DEBUGGING',TRUE);
+
 require_once('MysqliDb.php');
 
 define('DB_HOST','localhost');
@@ -21,17 +23,17 @@ function get_header_text($page, $title, $name) {
 <script type="text/javascript" src="include/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="include/jquery-ui.min.js"></script>
 ';
-if ($page == "submit") {
-	echo '<script type="text/javascript" src="include/submit.js"></script>
+	if ($page == "submit") {
+		echo '<script type="text/javascript" src="include/submit.js"></script>
 ';
-}
-if ($page == "useredit") {
-	echo '<script type="text/javascript" src="include/useredit.js"></script>
+	}
+	if ($page == "useredit") {
+		echo '<script type="text/javascript" src="include/useredit.js"></script>
 ';
-}
-echo '<title>Apex Wellness System';
+	}
+	echo '<title>Apex Wellness System';
 	if ($title) { echo "- ".$title;}
-echo '</title>
+	echo '</title>
 </head>
 
 <body>
@@ -56,12 +58,13 @@ echo '</title>
 		<li><a href="index.php">Home</a></li>
 		<li><a href="history.php">Wellness History</a></li>
 		<li><a href="submit.php">New Submission</a></li>';
-	if (get_user_level($_COOKIE["wellness_login_id"]) == 1) {
-		echo '
-		<li><a href="#">Admin Functions</a>
+		if (get_user_level($_COOKIE["wellness_login_id"]) == 1) {
+			echo '
+		<li><a href="#">Employee Management</a>
 			<ul>
 				<li><a href="useredit.php">Add/Remove Users</a></li>
 				<li><a href="submit.php?asadmin=1">Manual Submission</a></li>
+				<li><a href="approve.php">Approve Submissions</a></li>
 				<li><a href="reports.php">Reports</a></li>
 			</ul>
 		</li>';
@@ -74,11 +77,14 @@ echo '</title>
 	echo '
 <div id="main">
 ';
+}
 
 function get_footer_text() {
 	echo '</div>
 	<div id="footer">
-	<div id="classinfo">MIS4173 - Wellness Point System</div>
+';
+	debug("Debugging is on");
+echo '	<div id="classinfo">MIS4173 - Wellness Point System</div>
 </div>
 
 </body>
@@ -86,6 +92,11 @@ function get_footer_text() {
 </html>
 ';
 }
+
+function debug($text) {
+	if (DEBUGGING == TRUE) {
+		echo '<span class="debug">' . $text . '</span>';
+	}
 }
 
 ?>
