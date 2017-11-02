@@ -9,8 +9,10 @@ if (!isset($_COOKIE["wellness_login"])) {
 }
 else {
 	setcookie("wellness_login",$_COOKIE["wellness_login"],time()+3600);
+	setcookie("wellness_login_id",$_COOKIE["wellness_login_id"],time()+3600);
+
+	get_header_text("history","Wellness History",get_fullname($_COOKIE["wellness_login_id"]));
 ?>
-<?php get_header_text("history","Wellness History",get_fullname($_COOKIE["wellness_login_id"])); ?>
 
 <h1>Wellness History</h1>
 
@@ -24,7 +26,35 @@ else {
 	</tr>
 <?php
 
-$activities = get_emp_activity_history($_COOKIE["wellness_login_id"],date("Ym"));
+if (isset($_REQUEST["empid"])) {
+	$empid = $_REQUEST["empid"];
+}
+else {
+	$empid = $_COOKIE["wellness_login_id"];
+}
+
+if (get_user_level($_COOKIE["wellness_login_id"]) == 1) {
+?>
+<form method="post" action="history.php">
+Choose a user:&nbsp;<select name="empid">
+<?php
+	$users = get_user_list();
+	foreach ($users as $user) {
+		if ($user["id"] == $empid) {
+			$selected = " selected";
+		}
+		else {
+			$selected = "";
+		}
+		echo "\t<option value=\"" . $user["id"] . "\"" . $selected . ">" . $user["name"] . "</option>\n";
+	}
+?>
+</select>&nbsp;<input type="submit" value="Go" />
+</form><br /><br />
+<?php
+}
+
+$activities = get_emp_activity_history($empid,date("Ym"));
 $points = 0;
 $approved_points = 0;
 

@@ -9,6 +9,7 @@ if (!isset($_COOKIE["wellness_login"])) {
 }
 else {
 	setcookie("wellness_login",$_COOKIE["wellness_login"],time()+3600);
+	setcookie("wellness_login_id",$_COOKIE["wellness_login_id"],time()+3600);
 ?>
 <?php get_header_text("home","Home",get_fullname($_COOKIE["wellness_login_id"])); ?>
 

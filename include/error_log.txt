@@ -98,3 +98,9 @@ Stack trace:
   thrown in /home/grebfamily/public_html/mis4173/Team3/include/MysqliDb.php on line 1523
 [28-Oct-2017 23:11:42 UTC] PHP Fatal error:  Call to undefined function getOne() in /home/grebfamily/public_html/mis4173/Team3/include/f_users.php on line 111
 [28-Oct-2017 23:25:19 UTC] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home/grebfamily/public_html/mis4173/Team3/include/f_users.php on line 8
+[30-Oct-2017 22:58:13 UTC] PHP Notice:  Undefined index: empid in /home/grebfamily/public_html/mis4173/Team3/history.php on line 27
+[30-Oct-2017 22:58:35 UTC] PHP Notice:  Undefined variable: empid in /home/grebfamily/public_html/mis4173/Team3/history.php on line 34
+[30-Oct-2017 23:56:55 UTC] PHP Notice:  Undefined index: wellness_login_id in /home/grebfamily/public_html/mis4173/Team3/history.php on line 13
+[30-Oct-2017 23:56:55 UTC] PHP Notice:  Undefined index: wellness_login_id in /home/grebfamily/public_html/mis4173/Team3/include/globals.php on line 61
+[30-Oct-2017 23:56:55 UTC] PHP Notice:  Undefined index: wellness_login_id in /home/grebfamily/public_html/mis4173/Team3/history.php on line 31
+[30-Oct-2017 23:56:55 UTC] PHP Notice:  Undefined index: wellness_login_id in /home/grebfamily/public_html/mis4173/Team3/history.php on line 34

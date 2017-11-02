@@ -9,6 +9,7 @@ if (!isset($_COOKIE["wellness_login"])) {
 }
 else {
 	setcookie("wellness_login",$_COOKIE["wellness_login"],time()+3600);
+	setcookie("wellness_login_id",$_COOKIE["wellness_login_id"],time()+3600);
 	get_header_text("submit","New Submission",get_fullname($_COOKIE["wellness_login_id"])); ?>
 
 <h1>New Submission</h1>
@@ -114,16 +115,16 @@ else {
 				}
 				if (move_uploaded_file($_FILES["inputval"]["tmp_name"], $target_file)) {
 					echo "Your file has been uploaded. ";
-					if ($submit["approval"] == TRUE) {
-						echo "HR will need to approve your points.";
-					}
-					else {
-						if ($submit["points"] > 0) {
-							echo "You have earned " . $submit["points"] . " points.";
-						}
-					}
 				} else {
 					echo "Sorry, there was an error uploading your file.\n";
+				}
+			}
+			if ($submit["approval"] == TRUE) {
+				echo "HR will need to approve your points.";
+			}
+			else {
+				if ($submit["points"] > 0) {
+					echo "You have earned " . $submit["points"] . " points.";
 				}
 			}
 		}

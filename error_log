@@ -12,3 +12,4 @@
 [28-Oct-2017 21:24:25 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/grebfamily/public_html/mis4173/Team3/login.php on line 53
 [28-Oct-2017 23:24:38 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/grebfamily/public_html/mis4173/Team3/login.php on line 23
 [28-Oct-2017 23:24:55 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/grebfamily/public_html/mis4173/Team3/login.php on line 23
+[31-Oct-2017 01:03:02 UTC] PHP Parse error:  syntax error, unexpected ''<span class="error">There was' (T_ENCAPSED_AND_WHITESPACE) in /home/grebfamily/public_html/mis4173/Team3/submit.php on line 132
